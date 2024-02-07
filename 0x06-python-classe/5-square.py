@@ -1,55 +1,59 @@
 #!/usr/bin/python3
-"""
-    This module is an implementation of
-    printing a square
-"""
+"""Defines a class Square"""
 
 
 class Square:
-    """
-        a class Square that defines a square by: (based on 4-square.py)
+    """Represents a square
+    Attributes:
+        __size (int): size of a side of the square
     """
     def __init__(self, size=0):
+        """initializes the square
+        Args:
+            size (int): size of a side of the square
+        Returns:
+            None
         """
-            Instantiation with optional size
+        self.size = size
+
+    def area(self):
+        """calculates the square's area
+        Returns:
+            The area of the square
         """
-        self.__size = size
+        return (self.__size) ** 2
 
     @property
     def size(self):
+        """getter of __size
+        Returns:
+            The size of the square
         """
-            getter
-        """
-        return size.__size
+        return self.__size
 
     @size.setter
     def size(self, value):
-        """
-            setter
+        """setter of __size
+        Args:
+            value (int): size of a side of the square
+        Returns:
+            None
         """
         if type(value) is not int:
-            print("size must be an integer", end="")
-            raise TypeError
-        elif value < 0:
-            print("size must be >= 0", end="")
-            raise ValueError
+            raise TypeError("size must be an integer")
         else:
-            self.__size = value
-
-    def area(self):
-        """
-            The area of the square
-        """
-        return self.__size ** 2
+            if value < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = value
 
     def my_print(self):
-        """
-            prints the square with #
+        """prints the square
+        Returns:
+            None
         """
         if self.__size == 0:
             print()
-        else:
-            for i in range(self.__size):
-                for j in range(self.__size):
-                    print("#", end="")
-                print()
+            return
+        for i in range(self.__size):
+            print("".join(["#" for j in range(self.__size)]))

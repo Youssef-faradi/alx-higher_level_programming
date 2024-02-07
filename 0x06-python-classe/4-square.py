@@ -1,43 +1,48 @@
 #!/usr/bin/python3
-"""
-    This module is for the implementation of
-    getter and setter
-"""
+"""Defines a class Square"""
 
 
 class Square:
-    """
-        a class Square that defines a square by: (based on 3-square.py)
+    """Represents a square
+    Attributes:
+        __size (int): size of a side of the square
     """
     def __init__(self, size=0):
+        """initializes the square
+        Args:
+            size (int): size of a side of the square
+        Returns:
+            None
         """
-            instantiation
+        self.size = size
+
+    def area(self):
+        """calculates the square's area
+        Returns:
+            The area of the square
         """
-        self.__size = size
+        return (self.__size) ** 2
 
     @property
     def size(self):
-        """
-            getter
+        """getter of __size
+        Returns:
+            The size of the square
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """
-            setter
+        """setter of __size
+        Args:
+            value (int): the size of a size of the square
+        Returns:
+            None
         """
         if type(value) is not int:
-            print("size must be an integer", end="")
-            raise TypeError
-        elif self.__size < 0:
-            print("size must be >= 0", end="")
-            raise ValueError
+            raise TypeError("size must be an integer")
         else:
-            self.__size = value
-
-    def area(self):
-        """
-            Area of the square
-        """
-        return self.__size ** 2
+            if value < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = value

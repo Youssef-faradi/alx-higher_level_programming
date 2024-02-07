@@ -1,18 +1,16 @@
 #!/usr/bin/python3
-"""This modues contain a class that allows
-    the printation of a Square with a size
-"""
+"""Square class definition"""
 
 
 class Square:
+    """Represents a square
+    Attributes:
+        __size (int): size of a side of the square
     """
-        This is a class that defines a square by 0-square.py
-    """
-    def __init__(self, __size):
+    def __init__(self, size):
+        """Initializes a square
+        Args:
+            size (int): size of a side of the square
+        Returns: None
         """
-        __init_:
-            Initializes attributes
-        Attributes:
-            __size: the size of the square
-        """
-        self.__size = __size
+        self.__size = size
